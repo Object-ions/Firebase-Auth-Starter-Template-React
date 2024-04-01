@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../newFirebase.config';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg';
@@ -42,6 +43,13 @@ const SignUp = () => {
       );
 
       const user = userCredential.user;
+
+      const formDataCopy = { ...formData };
+      delete formDataCopy.password;
+      formDataCopy.timestamp = serverTimestamp();
+
+      // setDoc is what actually going to update our db and set the user in the users collection
+      await setDoc(doc(db, 'users', user.uid), formDataCopy);
 
       updateProfile(auth.currentUser, {
         displayName: name,
