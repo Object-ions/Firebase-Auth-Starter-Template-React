@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
-import { db } from '../firebase.config';
+import { db } from '../newFirebase.config';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg';
 import visibilityIcon from '../assets/svg/visibilityIcon.svg';
@@ -47,7 +47,7 @@ const SignUp = () => {
         displayName: name,
       });
 
-      navigate('');
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -98,7 +98,7 @@ const SignUp = () => {
           </div>
 
           <Link to={'/forgot-password'} className="forgotPasswordLink">
-            Forgot Passwprd?
+            Forgot Password?
           </Link>
 
           <div className="signUpBar">
