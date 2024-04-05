@@ -2,8 +2,6 @@
 
 ### by Moses Atia Poston
 
-# Firebase Auth Starter Template for Mobile Web Applications
-
 ## Description
 
 This project serves as a foundational template for mobile web applications requiring robust user authentication and data storage solutions. Leveraging Firebase 9, it integrates comprehensive authentication functionalities, including sign-in mechanisms via email and password, alongside Google OAuth. The template extends its capabilities to store user data and images securely in Firebase Firestore, offering a streamlined setup for developers to kickstart their mobile web projects.
